@@ -5,8 +5,12 @@ import pytesseract
 from PIL import Image
 import os
 from moviepy.editor import *
+import sys
 lan = 'en'
-path = filedialog.askopenfilenames()[0]
+if len(sys.argv)==0 :
+	path = filedialog.askopenfilenames()[0]
+else:
+	path= str(sys.argv[1:])[2:-2]
 img = Image.open(path)
 i2w, i2h = img.size
 if i2w%2 != 0:
